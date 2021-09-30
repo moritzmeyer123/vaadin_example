@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.example.application.data.AbstractEntity;
 
+import org.hibernate.annotations.Formula;
+
 @Entity
 public class Company extends AbstractEntity {
     @NotBlank
@@ -31,5 +33,12 @@ public class Company extends AbstractEntity {
 
     public void setEmployees(List<Contact> employees) {
         this.employees = employees;
+    }
+
+    @Formula("(select count(c.id) from Contact c where c.company_id = id)") 
+    private int employeeCount;
+
+    public int getEmployeeCount(){
+        return employeeCount;
     }
 }
