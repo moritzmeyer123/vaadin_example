@@ -14,7 +14,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-@EnableJpaRepositories("packages.to.scan")
+@EnableJpaRepositories("com.example.application.data.repository")
 public class JpaConfiguration {
     @Bean
     public DataSource dataSource() {
